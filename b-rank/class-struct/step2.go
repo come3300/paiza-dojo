@@ -42,52 +42,52 @@ type Student struct {
 	State string
 }
 
-// func main() {
-// 	// 標準入力からの読み込み
-// 	scanner := bufio.NewScanner(os.Stdin)
+func main() {
+	// 標準入力からの読み込み
+	scanner := bufio.NewScanner()
 
-// 	// クラスメイトの情報を格納するスライス
-// 	var classmates []Student
+	// クラスメイトの情報を格納するスライス
+	var classmates []Student
 
-// 	// クラスメイトの情報を取得
-// 	for i := 0; i < 3; i++ {
-// 		scanner.Scan()
-// 		line := scanner.Text()
-// 		fields := strings.Fields(line)
-// 		old := parseInt(fields[1])
+	// クラスメイトの情報を取得
+	for i := 0; i < 3; i++ {
+		scanner.Scan()
+		line := scanner.Text()
+		fields := strings.Fields(line)
+		old := parseInt(fields[1])
 
-// 		classmates = append(classmates, Student{
-// 			Name:  fields[0],
-// 			Old:   old,
-// 			Birth: fields[2],
-// 			State: fields[3],
-// 		})
-// 	}
+		classmates = append(classmates, Student{
+			Name:  fields[0],
+			Old:   old,
+			Birth: fields[2],
+			State: fields[3],
+		})
+	}
 
-// 	// 検索する年齢 K を取得
-// 	scanner.Scan()
-// 	k := parseInt(scanner.Text())
+	// 検索する年齢 K を取得
+	scanner.Scan()
+	k := parseInt(scanner.Text())
 
-// 	// 年齢が K である生徒の名前を出力
-// 	for _, student := range classmates {
-// 		if student.Old == k {
-// 			printStudentName(student)
-// 			break
-// 		}
-// 	}
-// }
+	// 年齢が K である生徒の名前を出力
+	for _, student := range classmates {
+		if student.Old == k {
+			printStudentName(student)
+			break
+		}
+	}
+}
 
-// // 文字列を整数に変換するヘルパー関数
-// func parseInt(s string) int {
-// 	var result int
-// 	fmt.Sscanf(s, "%d", &result)
-// 	return result
-// }
+// 文字列を整数に変換するヘルパー関数
+func parseInt(s string) int {
+	var result int
+	fmt.Sscanf(s, "%d", &result)
+	return result
+}
 
-// // 生徒の名前を出力する関数
-// func printStudentName(student Student) {
-// 	fmt.Printf("名前: %s\n", student.Name)
-// }
+// 生徒の名前を出力する関数
+func printStudentName(student Student) {
+	fmt.Printf("名前: %s\n", student.Name)
+}
 
 
 // go run b-rank/class-struct/step1.goで実行可能
