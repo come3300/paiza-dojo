@@ -1,42 +1,3 @@
-
-//* PaizaのPaizaの値取得・出力方法 解説
-
-// Paizaでの入力される値を
-// 変数に代入して処理をする方法についての解説である。
-
-//** 入力される値
-// 2
-// 2 5
-// 3 4
-
-// このサンプルの値をhello=,world= に代入して
-// そこから問題の処理を行なっていくための処理
-
-// ChatGPTに聞くと.txtなどのファイルに値を入れて
-// その値を取り込んで処理をするような記述になるがそうではなく
-// あくまで入力された値（入力される値のサンプルのような値）を
-// 取り込んで実行しなければならない
-
-// paiza.ioの入力欄に入力して正しく出力結果が得られるようにしなければならない
-// 下記リンクのpaiza.ioを参照
-// https://paiza.io/ja/projects/new
-
-//** Paizaでの入力例
-
-//** サンプルコード
-//** 入力される値
-// 2
-// 2 5
-// 3 4
-// このテストケースでは、最初の値は、その後入力される行数を示す(2行の入力がある)
-// 2行目以降は、helloとworldの値が[,]区切りで書かれています。
-
-// 期待する出力
-// hello = 2 , world = 5
-// hello = 3 , world = 4
-
-
-
 package main
 
 import (
@@ -246,17 +207,7 @@ func TestPaizaGetWordList() {
         }
 }
 
-// 1行・数値・空白区切り対応
-func TestPaizaGetNum() {
-        nums := PaizaGetNums()
-        fmt.Println(nums)
-        // 数値であることを示すため
-        if len(nums) >= 2 {
-                fmt.Printf("%d+%d=%d\n", nums[0], nums[1], nums[0]+nums[1])
-        } else {
-                fmt.Printf("%d*2=%d\n", nums[0], nums[0]*2)
-        }
-}
+
 
 // 1行目.......継続行数
 // 2行目以降...文字列(空白区切り)
@@ -315,13 +266,6 @@ func TestPaizaSequenceGets() {
 
 // main()
 func main() {
-        /**
-         * 1行・数値・複数整数(空白区切りのない整数値も可)
-         *
-         * 入力例)
-         * 12 34 56
-         */
-        TestPaizaGetNum()
 
         /**
          * 1行・文字・1単語
@@ -330,75 +274,4 @@ func main() {
          * foo
          */
         TestPaizaGetWord()
-
-        /**
-         * 1行・文字・複数単語
-         *
-         * 入力例)
-         * foo bar baz
-         */
-        TestPaizaGetWordList()
-
-        /**
-         * 1行目.......継続行数
-         * 2行目以降...文字列(空白区切り)
-         *
-         * 入力例)
-         * 3
-         * AA BB CC
-         * DD EE FF
-         * GG HH II
-         */
-        TestPaizaGets()
-
-        /**
-         * 1行目.......継続行数
-         * 2行目以降...文字、整数値列(空白区切り)
-         *
-         * 入力例)
-         * 3
-         * A 10 20 30
-         * B 11 22 33
-         * C 99 88 77
-         */
-        TestPaizaStrFirstIntAfter()
-
-        /**
-         * 1行目.......2整数(x yなど)
-         * 2行目以降...文字列(空白区切り)
-         *
-         * 入力例)
-         * 2 3
-         * AA BB CC
-         * XX YY ZZ
-         */
-        TestPaizaGetsXY()
-
-        /**
-         * 改行のみ続くまで数値列入力
-         *
-         * 入力例)
-         * 2 3 4
-         * 11 12 34
-         * 9 87 654
-         *    :
-         *    :
-         * (空行)
-         */
-        TestPaizaSequenceGetsAsInt()
-
-        /**
-         * 改行のみ続くまで文字列入力
-         *
-         * 入力例)
-         * foo bar baz
-         * hoge fuga
-         * piyo
-         * AA BB
-         *    :
-         *    :
-         * (空行)
-         */
-        TestPaizaSequenceGets()
 }
-
