@@ -13,15 +13,14 @@
 //     state : 出身地
 // }
 
-
 // この情報を扱いやすくするために、年齢が昇順になるようにデータを並び替えることにしました。
 // クラスメートの情報が与えられるので、並び替えた後のデータを出力してください。
 // 入力される値
+
 // N
 // n_1 o_1 b_1 s_1
 // ...
 // n_N o_N b_N s_N
-
 
 //  1 行目では、paiza君のクラスの人数 N が与えられます。
 //  続く N 行のうち i 行目 (1 ≦ i ≦ N) では、 i 番の生徒の名前・年齢・誕生日・出身地を表す整数・文字列
@@ -33,7 +32,6 @@
 // n_1 o_1 b_1 s_1
 // ...
 // n_N o_N b_N s_N
-
 
 // 各クラスメートの情報を年齢が昇順になるように整列したのち、入力と同様の形式で出力してください。
 // 条件
@@ -63,11 +61,14 @@
 
 package main
 
-import(
-	"fmt"
-)
+type User struct {
+	nickname int
+	old      string
+	birth    int
+	state    string
 
-type Employee struct {
-	number int
-	name   string
+	// nickname : 名前
+	// old : 年齢
+	// birth : 誕生日
+	// state : 出身地
 }
