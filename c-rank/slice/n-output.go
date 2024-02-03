@@ -5,7 +5,6 @@
 // 2 行目に N 個の整数 a_i が半角スペース区切りで与えられます。
 // 以下の形式で標準入力によって与えられます。
 
-
 // N K
 // a_1 ... a_N
 
@@ -14,7 +13,6 @@
 // 期待する出力
 // K 番目の整数 a_K を出力してください。
 // また、末尾に改行を入れ、余計な文字、空行を含んではいけません。
-
 
 // a_K
 // 条件
@@ -46,47 +44,46 @@ import (
 func main() {
 	// 標準入力から1行取得
 	scanner := bufio.NewScanner(os.Stdin)
-//! bufio.NewScanner(os.Stdin):
-//! bufio.NewScanner メソッドは os.Stdin からの標準入力を読み込む Scanner を生成します。
-//! Scanner はテキストデータを逐次的に読み込むための機能を提供します。
+	//! bufio.NewScanner(os.Stdin):
+	//! bufio.NewScanner メソッドは os.Stdin からの標準入力を読み込む Scanner を生成します。
+	//! Scanner はテキストデータを逐次的に読み込むための機能を提供します。
 
 	scanner.Scan()
-//! scanner.Scan():
-//! scanner.Scan メソッドは次のトークン（行）を読み込む操作を実行します。読み込みが成功すると、
-//! scanner.Text() メソッドで読み込んだテキストを取得できます。
+	//! scanner.Scan():
+	//! scanner.Scan メソッドは次のトークン（行）を読み込む操作を実行します。読み込みが成功すると、
+	//! scanner.Text() メソッドで読み込んだテキストを取得できます。
 
 	line1 := scanner.Text() // scanner.Scan()の文字列を取得   ここまでで1行目をline1に格納
 
 	// 1行目を空白で分割してNとKに分ける
 	values := strings.Fields(line1)
-//! strings.Fields(line1):
-//! strings.Fields メソッドは与えられた文字列を空白文字で分割し、それぞれのフィールド（単語）を含む文字列のスライスを返します。
-//!例えば、もし line1 が "5 3" だった場合、strings.Fields(line1) は ["5", "3"] のような文字列のスライスを生成し、これが values に代入されます。
+	//! strings.Fields(line1):
+	//! strings.Fields メソッドは与えられた文字列を空白文字で分割し、それぞれのフィールド（単語）を含む文字列のスライスを返します。
+	//!例えば、もし line1 が "5 3" だった場合、strings.Fields(line1) は ["5", "3"] のような文字列のスライスを生成し、これが values に代入されます。
 
 	// Nの値を取得したが、使用しないので _ で無視
 	_, _ = strconv.Atoi(values[0]) // 0番目の配列の値を文字列から整数に変換
 	// _（アンダースコア）:
-//! アンダースコア _ は「空白識別子」または「無視識別子」と呼ばれ、
-//! 値を捨てるために使用されます。この場合、Atoi メソッドから返された値を無視します。
-//! strconv.Atoi(values[0]):
-//! strconv.Atoi メソッドは文字列を整数に変換します。この場合、文字列 values[0] を整数に変換しています。
+	//! アンダースコア _ は「空白識別子」または「無視識別子」と呼ばれ、
+	//! 値を捨てるために使用されます。この場合、Atoi メソッドから返された値を無視します。
+	//! strconv.Atoi(values[0]):
+	//! strconv.Atoi メソッドは文字列を整数に変換します。この場合、文字列 values[0] を整数に変換しています。
 
 	K, _ := strconv.Atoi(values[1]) //! 同様に、文字列 values[1] を整数に変換し、K にその値を代入しています。
-//! K, _ := strconv.Atoi(values[1]):
-
+	//! K, _ := strconv.Atoi(values[1]):
 
 	// 2行目を整数のスライスに変換
 	scanner.Scan()
 	line2 := scanner.Text()
 	numbers := parseIntArray(line2)
-//!parseIntArray(line2):
-//! parseIntArray 関数は、与えられた文字列を整数のスライスに変換するための自作のヘルパー関数です。
+	//!parseIntArray(line2):
+	//! parseIntArray 関数は、与えられた文字列を整数のスライスに変換するための自作のヘルパー関数です。
 
 	// K番目の整数を出力
 	result := numbers[K-1]
 	fmt.Println(result)
-//! fmt.Println(result):
-//! fmt.Println メソッドは標準出力に引数で渡された値を表示します。この場合、result の値が表示されます。
+	//! fmt.Println(result):
+	//! fmt.Println メソッドは標準出力に引数で渡された値を表示します。この場合、result の値が表示されます。
 
 }
 
@@ -100,12 +97,3 @@ func parseIntArray(input string) []int {
 	}
 	return numbers
 }
-
-
-
-
-
-
-
-
-

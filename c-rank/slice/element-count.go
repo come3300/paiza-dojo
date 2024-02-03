@@ -19,7 +19,7 @@
 // 条件
 // 入力は与えられません。
 
-ackage main
+package main
 
 import "fmt"
 
